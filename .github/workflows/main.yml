@@ -105,7 +105,7 @@ jobs:
             docker rm mostrador-app || true
             
             # 4. Levantar el nuevo contenedor
-            docker run -d --name mostrador-app -p 8081:8081 \
+            docker run -d --name mostrador-app -p 8001:8001 \
               -e AWS_REGION="${{ secrets.AWS_DEFAULT_REGION }}" \
               -e DYNAMO_TABLE_NAME="boletines_recibidos" \
               $DOCKER_IMAGE
