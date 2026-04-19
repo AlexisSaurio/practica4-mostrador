@@ -1,11 +1,12 @@
+import os
 from fastapi import FastAPI, HTTPException, Query
 from fastapi.responses import HTMLResponse
 import boto3
 
 app = FastAPI(title="Practica 4 - Mostrador")
 
-REGION = "us-east-1"
-DYNAMO_TABLE_NAME = "boletines_recibidos"
+REGION = os.getenv("AWS_REGION", "us-east-1")
+DYNAMO_TABLE_NAME = os.getenv("DYNAMO_TABLE_NAME", "boletines_recibidos")
 
 dynamo_client = boto3.resource('dynamodb', region_name=REGION)
 
